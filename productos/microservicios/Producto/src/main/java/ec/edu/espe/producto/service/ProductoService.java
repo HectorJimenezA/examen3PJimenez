@@ -62,7 +62,7 @@ public class ProductoService {
         try {
             Producto ProductoAux = this.productoRepository.findByIdProducto(Producto.getIdProducto());
             if ("ACT".equals(ProductoAux.getEstado())) {
-                Producto.setExitencia("ACT");
+                Producto.setExitencia("1");
                 this.productoRepository.save(Producto);
                 log.info("Se actualizaron los datos del Producto: {}", Producto);
             } else {
@@ -79,7 +79,7 @@ public class ProductoService {
         try {
             Producto Producto = this.productoRepository.findByIdProducto(idProducto);
             log.debug("Desactivando Producto: {}, estado: 0", idProducto);
-            Producto.setEstado("INA");
+            Producto.setExistencia("0");
             this.productoRepository.save(Producto);
             log.info("Se desactivo el Producto: {}", idProducto);
         } catch (Exception e) {

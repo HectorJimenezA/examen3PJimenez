@@ -5,7 +5,7 @@ plugins {
 }
 
 springBoot {
-    mainClass = 'com.banquito.core.clientes.ClienteNaturalApplication'
+    mainClass = 'ec.edu.espe.producto.ProductoApplication'
 }
 
 sourceCompatibility = '17'
