@@ -33,22 +33,6 @@ public class ProductoService {
         return dtos;
     }
 
-    public Producto obtenerPorIdentificacion(String tipoIdentificacion, String numeroIdentificacion) {
-        log.info("Se va a obtener Producto por TipoIdentificacion: {} y NumeroIdentificacion: {}", tipoIdentificacion,numeroIdentificacion);
-        List<Producto> Productos = this.productoRepository.findByTipoIdentificacionAndNumeroIdentificacion(tipoIdentificacion, numeroIdentificacion);
-        if (Productos != null && !Productos.isEmpty()) {
-            if ("ACT".equals(Productos.get(0).getExistencia())) {
-                log.debug("Producto obtenido: {}", Productos.get(0));
-                return Productos.get(0);
-            } else {
-                throw new RuntimeException("Producto con id: " + id
-                     + " no se encuentra activo");
-            }
-        } else {
-            throw new RuntimeException("No existe el Producto con id: " + id);
-        }
-    }
-
     public Producto obtenerPorId(String id) {
         log.info("Se va a obtener el Producto con ID: {}", id);
         Producto Producto = this.productoRepository.findByIdProducto(id);
@@ -64,9 +48,8 @@ public class ProductoService {
     public void crear(Producto Producto) {
         try {
             Producto.setExitencia("1");
-            Producto.setIdProducto(new DigestUtils("MD2").digestAsHex(Producto.getTipoIdentificacion()+Producto.getNumeroIdentificacion()));
+            Producto.setIdProducto(new DigestUtils("MD2").digestAsHex(Producto.getId()));
             log.debug("ID Producto generado: {}", Producto.getIdProducto());
-            Producto.setFechaCreacion(new Date());
             this.productoRepository.save(Producto);
             log.info("Se creo el Producto: {}", Producto);
         } catch (Exception e) {
