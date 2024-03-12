@@ -1,11 +1,4 @@
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@Document(collection = "Productos")
 
 public class Productos {
     @Id

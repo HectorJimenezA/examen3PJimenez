@@ -1,4 +1,4 @@
-package com.banquito.core.clientes.configuration;
+package ec.edu.espe.producto.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

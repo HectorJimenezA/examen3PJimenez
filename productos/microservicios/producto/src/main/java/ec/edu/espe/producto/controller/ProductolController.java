@@ -44,9 +44,9 @@ public class ProductoController {
 
     @PostMapping
     public ResponseEntity<Void> crear(@RequestBody Producto producto) {
-        log.info("Se va a crear el producto: {}", cliente);
+        log.info("Se va a crear el producto: {}", producto);
         try {
-            this.ProductoService.crear(cliente);
+            this.ProductoService.crear(producto);
             return ResponseEntity.noContent().build();
         } catch(RuntimeException rte) {
             log.error("Error al crear el producto", rte);
