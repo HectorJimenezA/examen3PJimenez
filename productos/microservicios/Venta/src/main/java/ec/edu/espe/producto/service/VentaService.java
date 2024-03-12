@@ -1,4 +1,4 @@
-package com.banquito.core.clientes.service;
+package ec.edu.espe.producto.service;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -105,4 +105,5 @@ public class ClienteNaturalService {
         }
     }
 }
+
 
